@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+	<groupId>ca.loobo.learn.ejb</groupId>
+    <artifactId>helloEJB_parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>helloEJB</artifactId>
+  <packaging>ejb</packaging>
+
+
+  <dependencies>
+
+	<!-- This is only used for compilation, javaee-api provides implementation of javax.ejb.
+	     Because WebLogic doesn't provide public hosted implementation of such package, so use this one instead 
+	     for compiling convenience.  The corresponding weblogic implementation is included in weblogic server,
+	     so don't add this package in jar file
+	 -->
+    <dependency>
+      <groupId>org.apache.openejb</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+  
+  <build>
+  
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ejb-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <ejbVersion>3.0</ejbVersion>
+        </configuration>
+      </plugin>
+    </plugins>  
+
+  </build>
+
+</project>
